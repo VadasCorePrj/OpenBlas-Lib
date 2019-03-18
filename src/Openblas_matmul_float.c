@@ -12,6 +12,18 @@ static inline double timestamp()
 	return (ts.tv_sec + ts.tv_nsec * 1e-9) * 1000;
 }
 
+void printTensor(float* src, int row, int col)
+{
+	for(int y = 0; y < row; y++)
+	{
+		for(int x = 0; x < col; x++)
+		{
+			printf("%f ", src[y*col+x]);
+		}
+		printf("\n");
+	}
+}
+
 int main(int argc, char * argv[]){
 
 	srand((unsigned int)time(NULL));
@@ -25,9 +37,9 @@ int main(int argc, char * argv[]){
 	int sizeC = M*N;
 	
 	float R = 1.0;
-	int *numPtrMatA = malloc(sizeof(float) * sizeA );
-	int *numPtrMatB = malloc(sizeof(float) * sizeB );
-	int *numPtrMatC = malloc(sizeof(float) * sizeC );
+	float *numPtrMatA = malloc(sizeof(float) * sizeA );
+	float *numPtrMatB = malloc(sizeof(float) * sizeB );
+	float *numPtrMatC = malloc(sizeof(float) * sizeC );
 	
 	for (int i = 0; i < sizeA; i++)
 	{
